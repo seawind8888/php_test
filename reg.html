@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="static/jquery.min.js"></script>
+</head>
+<body>
+  <p>用户名:<input type="text" name="name" id="name"></p>
+  <p>密 码: <input type="text" name="password" id="password"></p>
+  <p><a id="submit" >注册</a></p>
+</body>
+<script>
+  $(function () {
+    $('#submit').on('click', function () {
+      var name = $('#name').val();
+      var password = $('#password').val();
+      $.ajax({
+        type: 'post',
+        url: 'controller/index/test',
+        contentType: 'application/json',
+        dataType: 'json',
+        data: {
+          username: name,
+          password: password
+        },
+        success: function (data) {
+          console.log(data);
+        }
+      })
+    })
+  });
+
+</script>
+</html>
